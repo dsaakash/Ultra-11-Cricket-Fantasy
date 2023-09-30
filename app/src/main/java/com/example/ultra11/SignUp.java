@@ -3,15 +3,20 @@ package com.example.ultra11;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+
+
+import com.google.android.material.textfield.TextInputEditText;
+
 
 public class SignUp extends AppCompatActivity {
 
 
-    Button Callsignin;
+//    Button Callsignin;
+//    Button signUpButton;
+//    TextInputEditText nameEditText, usernameEditText, emailEditText, phoneEditText, passwordEditText;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -19,15 +24,20 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        Callsignin = findViewById(R.id.login);
+//        Callsignin = findViewById(R.id.login);
+//
+//        signUpButton = findViewById(R.id.signUpButton);
+//        nameEditText = findViewById(R.id.name);
+//        usernameEditText = findViewById(R.id.username);
+//        emailEditText = findViewById(R.id.email);
+//        phoneEditText = findViewById(R.id.phoneNo);
+//        passwordEditText = findViewById(R.id.password);
 
 
-        Callsignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignUp.this, Login.class);
-                startActivity(intent);
-            }
-        });
+
+
+
+
     }
 }
+

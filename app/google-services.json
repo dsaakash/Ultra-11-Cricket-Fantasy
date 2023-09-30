@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "206521532826",
+    "project_id": "ultra11-user",
+    "storage_bucket": "ultra11-user.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206521532826:android:e359976c5653bfbf607a23",
+        "android_client_info": {
+          "package_name": "com.example.ultra11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj8sw3n6Uw3NowzdhfJWq0lT_Yvhi695k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
