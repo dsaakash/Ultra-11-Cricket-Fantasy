@@ -21,14 +21,14 @@ import java.util.concurrent.TimeUnit;
 
 public class VerifyOTPActivity extends AppCompatActivity {
 
-        EditText t2;
-        Button b2;
+    EditText t2;
+    Button b2;
 
-        String phoneNumber;
+    String phoneNumber;
 
-        String otpid;
+    String otpid;
 
-        FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
 
 
@@ -85,6 +85,8 @@ public class VerifyOTPActivity extends AppCompatActivity {
                     public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential)
                     {
                         signInWithPhoneAuthCredential(phoneAuthCredential);
+
+
                     }
 
                     @Override
@@ -93,7 +95,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
                     }
                 });        // OnVerificationStateChangedCallbacks
 
-        }
+    }
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -106,7 +108,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
                             finish();
 
                         } else {
-                            Toast.makeText(getApplicationContext(),"Signin Code Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Signing Code Error",Toast.LENGTH_LONG).show();
                         }
                     }
                 });

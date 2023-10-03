@@ -16,7 +16,9 @@ public class SignUp extends AppCompatActivity {
 
 //    Button Callsignin;
 //    Button signUpButton;
-//    TextInputEditText nameEditText, usernameEditText, emailEditText, phoneEditText, passwordEditText;
+    String phoneNumber;
+  //TextInputEditText phoneEditText;
+//        nameEditText, usernameEditText, emailEditText, , passwordEditText;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -24,14 +26,10 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-//        Callsignin = findViewById(R.id.login);
-//
-//        signUpButton = findViewById(R.id.signUpButton);
-//        nameEditText = findViewById(R.id.name);
-//        usernameEditText = findViewById(R.id.username);
-//        emailEditText = findViewById(R.id.email);
-//        phoneEditText = findViewById(R.id.phoneNo);
-//        passwordEditText = findViewById(R.id.password);
+
+
+
+
 
 
 
