@@ -15,8 +15,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.ultra11.Common.LoginSignUp.SignUp3Class;
 import com.example.ultra11.R;
-import com.example.ultra11.SendOTPActivity;
+import com.example.ultra11.Common.LoginSignUp.SendOTPActivity;
 
 public class SplashScreen extends AppCompatActivity {
 

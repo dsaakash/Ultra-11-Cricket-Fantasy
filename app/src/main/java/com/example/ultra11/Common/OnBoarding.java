@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.example.ultra11.HelperClasses.SliderAdapter;
 import com.example.ultra11.R;
-import com.example.ultra11.SendOTPActivity;
+import com.example.ultra11.Common.LoginSignUp.SignUp3Class;
 
 public class OnBoarding extends AppCompatActivity {
 
@@ -59,6 +59,16 @@ public class OnBoarding extends AppCompatActivity {
         dotslayout = findViewById(R.id.dots);        // Reference to the layout where dots will be displayed.
         letsGetStarted = findViewById(R.id.get_started_btn); // References for button
 
+
+
+
+        letsGetStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), SignUp3Class.class));
+            }
+        });
+
         // Create a SliderAdapter instance and set it as the adapter for the ViewPager.
         sliderAdapter = new SliderAdapter(this);      // Create a custom adapter for the ViewPager.
         viewPager.setAdapter(sliderAdapter);         // Set the adapter for the ViewPager.
@@ -72,7 +82,7 @@ public class OnBoarding extends AppCompatActivity {
 
     public void skip(View view){
 
-        startActivity(new Intent(getApplicationContext(), SendOTPActivity.class));
+        startActivity(new Intent(getApplicationContext(), SignUp3Class.class));
 
         finish();
 

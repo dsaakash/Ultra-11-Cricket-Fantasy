@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'com.example.ultra11'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.ultra11"
@@ -27,9 +27,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
+    implementation 'androidx.navigation:navigation-fragment:2.7.4'
+    implementation 'androidx.navigation:navigation-ui:2.7.4'
+
     //implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
 
@@ -44,6 +52,11 @@ dependencies {
             replacedBy("org.jetbrains.kotlin:kotlin-stdlib", "kotlin-stdlib-jdk8 is now part of kotlin-stdlib")
         }
     }
+
+
+
+
+    implementation 'com.google.android.material:material:1.1.0'
         implementation 'androidx.appcompat:appcompat:1.6.1'
         implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
         implementation 'com.google.android.material:material:1.0.0'
@@ -79,5 +92,25 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
 
+//    Country Picker
+
+    implementation 'com.hbb20:ccp:2.3.1'
+
+
+//    OTP PIN View Design
+
+    implementation 'io.github.chaosleung:pinview:1.4.4'
+
+
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+
+
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.13.21' // Use the latest version available
+
+//    implementation group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '8.13.21'
+
+//    Google-Auth
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
 
 }
