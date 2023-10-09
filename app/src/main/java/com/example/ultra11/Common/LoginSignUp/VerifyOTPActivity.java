@@ -1,16 +1,25 @@
 package com.example.ultra11.Common.LoginSignUp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.chaos.view.PinView;
 import com.example.ultra11.Common.ReferalScreen.ReferalScreen;
 import com.example.ultra11.R;
+import com.google.android.gms.auth.api.phone.SmsRetriever;
+import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -20,18 +29,22 @@ import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class VerifyOTPActivity extends AppCompatActivity {
+
+
+    private static final int REQ_USER_CONSENT = 200;
+    SmsBroadcastReceiver smsBroadcastReceiver;
 
     EditText t2;
 
     Button b2;
-
     String phoneNumber;
     String otpid;
 
     FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,13 +52,19 @@ public class VerifyOTPActivity extends AppCompatActivity {
 
         phoneNumber = getIntent().getStringExtra("mobile").toString();
 
-        t2 = findViewById(R.id.t2);
+       t2 = findViewById(R.id.t2);
+       // pinfromUser = findViewById(R.id.pin_view);
+
         b2 = findViewById(R.id.b2);
 
         mAuth = FirebaseAuth.getInstance();
 
-        initiateOtp();
 
+
+
+
+       initiateOtp();
+       startSmartUserConsent();
 
 
 
@@ -64,11 +83,83 @@ public class VerifyOTPActivity extends AppCompatActivity {
         });
     }
 
+    // Add a method to check if the SIM card is in the same device
 
 
+    private void startSmartUserConsent() {
+
+        SmsRetrieverClient client = SmsRetriever.getClient(this);
+        client.startSmsUserConsent(null);
+    }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+
+        if (requestCode == REQ_USER_CONSENT){
+
+            if ((resultCode == RESULT_OK) && (data != null)){
+
+                String message = data.getStringExtra(SmsRetriever.EXTRA_SMS_MESSAGE);
+                getOtpFromMessage(message);
+
+
+            }
+
+
+        }
+    }
+
+    private void getOtpFromMessage(String message) {
+
+        //initiateOtp();
+        Pattern otpPattern = Pattern.compile("(|^)\\d{6}");
+        Matcher matcher = otpPattern.matcher(message);
+        if (matcher.find()){
+
+            t2.setText(matcher.group(0));
+
+        }
+    }
+
+
+    private void registerBroadcastReceiver(){
+
+        smsBroadcastReceiver = new SmsBroadcastReceiver();
+
+        smsBroadcastReceiver.smsBroadcastReceiverListener = new SmsBroadcastReceiver.SmsBroadcastReceiverListener() {
+            @Override
+            public void onSuccess(Intent intent) {
+
+                startActivityForResult(intent,REQ_USER_CONSENT);
+
+            }
+
+            @Override
+            public void onFailure() {
+
+            }
+        };
+
+        IntentFilter intentFilter = new IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION);
+        registerReceiver(smsBroadcastReceiver,intentFilter);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        registerBroadcastReceiver();
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(smsBroadcastReceiver);
+    }
 
 
     private void initiateOtp() {
@@ -106,7 +197,7 @@ public class VerifyOTPActivity extends AppCompatActivity {
                             startActivity(new Intent(VerifyOTPActivity.this, ReferalScreen.class));
                             finish();
                         } else {
-                            Toast.makeText(getApplicationContext(), "Signing Code Error", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Verification failed. Please try again.", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

@@ -42,6 +42,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="referal_code_text">Enter Referal Code (Optional)</string>
+    <string name="referal_code">Referal code</string>
 
 
 </resources>

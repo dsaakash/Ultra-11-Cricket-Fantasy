@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.ultra11.DashBoard.DashBoardScreen;
+import com.example.ultra11.DashBoard.DashBoard;
 import com.example.ultra11.R;
 
 public class ReferalScreen extends AppCompatActivity {
@@ -17,9 +17,9 @@ public class ReferalScreen extends AppCompatActivity {
         setContentView(R.layout.activity_referal_screen);
     }
 
-    public void navigatetoDashBoard(View view) {
 
-        startActivity(new Intent(getApplicationContext(), DashBoardScreen.class));
-        finish();
+    public void NavigatetoDashBOard(View view) {
+
+        startActivity(new Intent(getApplicationContext(), DashBoard.class));
     }
 }

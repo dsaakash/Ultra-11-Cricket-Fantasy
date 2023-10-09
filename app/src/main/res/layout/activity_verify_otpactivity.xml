@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellow"
     tools:context=".Common.LoginSignUp.VerifyOTPActivity">
 
 
@@ -42,6 +43,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.339" />
+
+<!--    <com.chaos.view.PinView-->
+<!--        android:id="@+id/pin_view"-->
+<!--        style="@style/PinWidget.PinView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:cursorVisible="true"-->
+<!--        android:inputType="number"-->
+<!--        android:itemBackground="#EDEBEB"-->
+<!--        app:cursorColor="@color/black"-->
+<!--        app:hideLineWhenFilled="true"-->
+<!--        app:itemCount="6"-->
+<!--        app:itemHeight="50dp"-->
+<!--        app:itemRadius="5dp"-->
+<!--        app:itemWidth="50dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:lineColor="#131313"-->
+<!--        tools:layout_editor_absoluteY="249dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
     <Button
         android:id="@+id/b2"

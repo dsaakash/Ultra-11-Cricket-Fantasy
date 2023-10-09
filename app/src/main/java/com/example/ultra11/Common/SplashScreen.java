@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.ultra11.Common.LoginSignUp.SignUp3Class;
+import com.example.ultra11.Phone_Login_Screen;
 import com.example.ultra11.R;
 import com.example.ultra11.Common.LoginSignUp.SendOTPActivity;
 
@@ -95,7 +96,7 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 else {
 
-                    Intent intent = new Intent(SplashScreen.this, SendOTPActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, Phone_Login_Screen.class);
 //                startActivity(intent);
 //                finish();
                     Pair[] pairs = new Pair[2];

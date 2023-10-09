@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.ultra11.HelperClasses.SliderAdapter;
+import com.example.ultra11.Phone_Login_Screen;
 import com.example.ultra11.R;
 import com.example.ultra11.Common.LoginSignUp.SignUp3Class;
 
@@ -65,7 +66,7 @@ public class OnBoarding extends AppCompatActivity {
         letsGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), SignUp3Class.class));
+                startActivity(new Intent(getApplicationContext(), Phone_Login_Screen.class));
             }
         });
 
@@ -82,7 +83,7 @@ public class OnBoarding extends AppCompatActivity {
 
     public void skip(View view){
 
-        startActivity(new Intent(getApplicationContext(), SignUp3Class.class));
+        startActivity(new Intent(getApplicationContext(), Phone_Login_Screen.class));
 
         finish();
 

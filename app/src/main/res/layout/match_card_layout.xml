@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/match_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardElevation="4dp"
+    android:background="@color/yellow"
+    app:cardBackgroundColor="@color/yellow"
+    app:cardMaxElevation="10dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <!-- Match Date and Time TextView -->
+        <TextView
+            android:id="@+id/league_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bangers"
+            android:gravity="center"
+
+            android:text="IC IC WOrld CUP"
+            android:textColor="#ED0606"
+            android:textSize="18sp" />
+
+
+
+
+        <!-- Match Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp">
+
+            <!-- Circular ImageView for Team 1 -->
+
+
+            <ImageView
+                android:id="@+id/team1_image"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:src="@drawable/india"
+                android:layout_weight="1"
+                android:layout_marginEnd="16dp"/>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+            <!-- Versus TextView -->
+            <TextView
+                android:id="@+id/versus_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00pm"
+                android:textStyle="bold"
+                android:fontFamily="@font/muli"
+                android:textSize="12sp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/versus_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="06-10-2023"
+                android:textStyle="bold"
+                android:fontFamily="@font/muli"
+                android:textSize="12sp"
+                android:layout_below="@+id/versus_text"
+                android:layout_gravity="center_vertical"/>
+</RelativeLayout>
+
+
+
+            <!-- Circular ImageView for Team 2 -->
+            <ImageView
+                android:id="@+id/team2_image"
+                android:layout_weight="1"
+                android:layout_width="64dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pak"
+                android:layout_marginStart="16dp"/>
+
+
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/contest_prize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prize: $1000"
+            android:textSize="16sp"
+            android:layout_marginEnd="112dp"
+            android:paddingBottom="1dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
