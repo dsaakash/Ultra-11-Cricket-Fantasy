@@ -3,11 +3,21 @@ package com.example.ultra11.DashBoard;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.ultra11.Adapters.CarouselAdapter;
 import com.example.ultra11.Adapters.MatchAdapter;
 import com.example.ultra11.Adapters.YourMatchData;
+import com.example.ultra11.EditProfileScreen;
 import com.example.ultra11.R;
 
 import java.util.ArrayList;
@@ -17,21 +27,74 @@ public class DashBoard extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private MatchAdapter adapter;
+    private ImageView account_icon;
+   // private CarouselAdapter carouselAdapter;
+   // private ViewPager2 imageCarousel; // Use ViewPager here
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
+
+        ImageSlider imageSlider = findViewById(R.id.imageSlider);
+
+
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+
+        slideModels.add(new SlideModel(R.drawable.image, ScaleTypes.FIT));
+
+        slideModels.add(new SlideModel(R.drawable.image_a,ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img_b,ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img_c,ScaleTypes.FIT));
+        slideModels.add(new SlideModel(R.drawable.img_d,ScaleTypes.FIT));
+
+        imageSlider.setImageList(slideModels,ScaleTypes.FIT);
+
+
+
+
+        // Initialize UI elements
+        account_icon = findViewById(R.id.account_icon);
+    //    imageCarousel = findViewById(R.id.image_carousel); // Initialize ViewPager here
         recyclerView = findViewById(R.id.match_recycler_view);
+
+
+        // Set up image carousel (ViewPager)
+//        List<Integer> imageList = new ArrayList<>();
+//        imageList.add(R.drawable.image);
+//        imageList.add(R.drawable.image_a);
+//        imageList.add(R.drawable.img_b);
+//        imageList.add(R.drawable.img_c);
+//        imageList.add(R.drawable.img_d);
+
+  //      carouselAdapter = new CarouselAdapter(this, imageList);
+
+        // Set the adapter for ViewPager
+//        imageCarousel.setAdapter(carouselAdapter);
+
+        // Set up click listener for the account icon
+        account_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EditProfileScreen.class);
+                startActivity(intent);
+            }
+        });
+
+        // Set up the RecyclerView for match data
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
-        // Replace YourMatchData with actual match data objects
-        List<YourMatchData> matchList = getMatchData(); // Retrieve your match data
-
+        List<YourMatchData> matchList = getMatchData();
         adapter = new MatchAdapter(matchList);
         recyclerView.setAdapter(adapter);
+
+
+
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL); // or HORIZONTAL
+        layoutManager.setReverseLayout(false); // or true if needed
+        recyclerView.setLayoutManager(layoutManager);
     }
 
     // Replace this method with code to retrieve your match data
